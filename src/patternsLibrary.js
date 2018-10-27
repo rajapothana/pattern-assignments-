@@ -10,9 +10,11 @@ const generateFilledRectangle = function(length,width) {
   let numberOfLines = 1;
   let line = generateLine("*",length);
   let rectangle ="";
+  let delimitor = "";
   while(numberOfLines <= width) {
-    rectangle += line+"\n";
+    rectangle += delimitor+line;
     numberOfLines++;
+    delimitor = "\n";
   }
   return rectangle;
 }
@@ -172,6 +174,7 @@ const generateAngleDiamond = function(height) {
 }
 
 const createDiamondTypeOf = function (typeOfDiamond,height) {
+   height  = (Math.ceil((height)/2)*2)-1;
   if(typeOfDiamond == "filled"){
     return generateFilledDiamond(height);
   }
